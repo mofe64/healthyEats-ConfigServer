@@ -2,12 +2,18 @@ spring:
   application:
     name: healthyeats-configserver
   profiles:
-    active: native
+    active: git
   cloud:
     config:
       server:
         native:
           search-locations: classpath:/config
+        git:
+          search-paths: src/main/resources/config
+          default-label: main
+          uri: https://github.com/mofe64/healthyEats-ConfigServer
+          skip-ssl-validation: true
+
 
 
 server:

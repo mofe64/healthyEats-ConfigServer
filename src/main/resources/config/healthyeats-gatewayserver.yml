@@ -12,7 +12,7 @@ spring:
           predicates:
             - Path=/meals/**
           filters:
-            - RewritePath = /meals/(?<path>.*), /$\{path}
+            - RewritePath=/meals/(?<path>.*), /$\{path}
 
 
 server:

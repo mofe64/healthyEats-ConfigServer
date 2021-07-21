@@ -7,7 +7,7 @@ spring:
           lower-case-service-id: true
       routes:
         - id: healthyeats-mealservice
-          uri: lb:// healthyeats-mealservice
+          uri: lb://healthyeats-mealservice
 
           predicates:
             - Path=/meals/**
@@ -15,7 +15,7 @@ spring:
             - RewritePath=/meals/(?<path>.*), /$\{path}
 
         - id: healthyeats-userservice
-          uri: lb:// healthyeats-userservice
+          uri: lb://healthyeats-userservice
 
           predicates:
             - Path=/users/**

@@ -6,21 +6,19 @@ spring:
           enabled: true
           lower-case-service-id: true
       routes:
-        - id: healthyeats-mealservice
-          uri: lb://healthyeats-mealservice
+      - id: healthyeats-mealservice
+        uri: lb://healthyeats-mealservice
+        predicates:
+        - Path=/meals/**
+        filters:
+        - RewritePath=/meals/(?<path>.*), /$\{path}
 
-          predicates:
-            - Path=/meals/**
-          filters:
-            - RewritePath=/meals/(?<path>.*), /$\{path}
-
-        - id: healthyeats-userservice
-          uri: lb://healthyeats-userservice
-
-          predicates:
-            - Path=/users/**
-          filters:
-            - RewritePath=/users/(?<path>.*), /$\{path}
+      - id: healthyeats-userservice
+        uri: lb://healthyeats-userservice
+        predicates:
+        - Path=/users/**
+        filters:
+        - RewritePath=/users/(?<path>.*), /$\{path}
 
 
 server:

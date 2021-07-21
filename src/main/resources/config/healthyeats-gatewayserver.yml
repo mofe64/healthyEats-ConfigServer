@@ -14,6 +14,14 @@ spring:
           filters:
             - RewritePath=/meals/(?<path>.*), /$\{path}
 
+        - id: healthyeats-userservice
+          uri: lb:// healthyeats-userservice
+
+          predicates:
+            - Path=/users/**
+          filters:
+            - RewritePath=/users/(?<path>.*), /$\{path}
+
 
 server:
   port: 8072

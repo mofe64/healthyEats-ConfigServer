@@ -2,9 +2,9 @@ spring:
   cloud:
     gateway:
       discovery:
-      #        locator:
-      #          enabled: true
-      #          lower-case-service-id: true
+        locator:
+          enabled: true
+          lower-case-service-id: true
       routes:
         - id: HEALTHYEATS-MEALSERVICE
           uri: lb://HEALTHYEATS-MEALSERVICE

@@ -2,25 +2,23 @@ spring:
   cloud:
     gateway:
       discovery:
-        locator:
-          enabled: true
-          lower-case-service-id: true
+      #        locator:
+      #          enabled: true
+      #          lower-case-service-id: true
       routes:
-      - id: healthyeats-mealservice
-        uri: lb://healthyeats-mealservice
-        predicates:
-        - Path=/meals/**
-        filters:
-        - RewritePath=/meals/(?<path>.*), /$\{path}
-        - AuthenticationFilter
+        - id: healthyeats-mealservice
+          uri: lb://healthyeats-mealservice
+          predicates:
+            - Path=/meals/**
+          filters:
+            - RewritePath=/meals/(?<path>.*), /$\{path}
 
-      - id: healthyeats-userservice
-        uri: lb://healthyeats-userservice
-        predicates:
-        - Path=/users/**
-        filters:
-        - RewritePath=/users/(?<path>.*), /$\{path}
-        - AuthenticationFilter
+        - id: healthyeats-userservice
+          uri: lb://healthyeats-userservice
+          predicates:
+            - Path=/users/**
+          filters:
+            - RewritePath=/users/(?<path>.*), /$\{path}
 
 
 server:

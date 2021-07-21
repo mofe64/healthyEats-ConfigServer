@@ -12,6 +12,7 @@ spring:
         - Path=/meals/**
         filters:
         - RewritePath=/meals/(?<path>.*), /$\{path}
+        - AuthenticationFilter
 
       - id: healthyeats-userservice
         uri: lb://healthyeats-userservice
@@ -19,6 +20,7 @@ spring:
         - Path=/users/**
         filters:
         - RewritePath=/users/(?<path>.*), /$\{path}
+        - AuthenticationFilter
 
 
 server:

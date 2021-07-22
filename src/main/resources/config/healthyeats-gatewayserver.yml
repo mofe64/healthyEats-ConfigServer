@@ -6,20 +6,23 @@ spring:
           enabled: true
           lower-case-service-id: true
       routes:
-        - id: HEALTHYEATS-MEALSERVICE
+        - id: mealservice
           uri: lb://HEALTHYEATS-MEALSERVICE
           predicates:
             - Path=/meals/**
           filters:
             - RewritePath=/meals/(?<path>.*), /$\{path}
 
-        - id: HEALTHYEATS-USERSERVICE
+        - id: userservice
           uri: lb://HEALTHYEATS-USERSERVICE
           predicates:
             - Path=/users/**
           filters:
             - RewritePath=/users/(?<path>.*), /$\{path}
-
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG
+    reactor.netty.http.client: DEBUG
 
 server:
   port: 8072

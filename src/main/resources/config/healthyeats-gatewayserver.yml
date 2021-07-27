@@ -19,10 +19,10 @@ spring:
             - Path=/users/**
           filters:
             - RewritePath=/users/(?<path>.*), /$\{path}
-#logging:
-#  level:
-#    org.springframework.cloud.gateway: DEBUG
-#    reactor.netty.http.client: DEBUG
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG
+    reactor.netty.http.client: DEBUG
 
 #server:
 #  port: 8072

@@ -19,6 +19,9 @@ spring:
             - Path=/users/**
           filters:
             - RewritePath=/users/(?<path>.*), /$\{path}
+logging:
+  level:
+    org.springframework.cloud.gateway: TRACE
 #logging:
 #  level:
 #    org.springframework.cloud.gateway: DEBUG
